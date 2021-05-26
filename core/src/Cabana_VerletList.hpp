@@ -90,6 +90,8 @@ struct VerletListData<DeviceType, VerletLayout2D>
 
 namespace Impl
 {
+//! \cond Impl
+
 //---------------------------------------------------------------------------//
 // Neighborhood discriminator.
 template <class Tag>
@@ -606,6 +608,7 @@ struct VerletListBuilder
 
 //---------------------------------------------------------------------------//
 
+//! \endcond
 } // end namespace Impl
 
 //---------------------------------------------------------------------------//

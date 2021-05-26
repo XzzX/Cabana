@@ -21,6 +21,8 @@ namespace Cabana
 {
 namespace Impl
 {
+//! \cond Impl
+
 template <class Real, typename std::enable_if<
                           std::is_floating_point<Real>::value, int>::type = 0>
 class CartesianGrid
@@ -161,7 +163,7 @@ class CartesianGrid
         return floor( ( max - min ) * rdelta );
     }
 };
-
+//! \endcond
 } // end namespace Impl
 } // end namespace Cabana
 
