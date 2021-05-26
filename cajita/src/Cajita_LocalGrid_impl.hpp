@@ -51,10 +51,11 @@ int LocalGrid<MeshType>::totalNumCell( const int d ) const
 
 //---------------------------------------------------------------------------//
 // Given the relative offsets of a neighbor rank relative to this local grid's
-// indices get the of the neighbor. If the neighbor rank is out of bounds
-// return -1. Note that in the case of periodic boundaries out of bounds
-// indices are allowed as the indices will be wrapped around the periodic
-// boundary.
+// indices get the of the neighbor.
+/*!
+  \ingroup NeighborRank
+  \param off_ijk Array of neighbor offset indices.
+*/
 template <class MeshType>
 int LocalGrid<MeshType>::neighborRank(
     const std::array<int, num_space_dim>& off_ijk ) const
@@ -65,6 +66,10 @@ int LocalGrid<MeshType>::neighborRank(
     return _global_grid->blockRank( nijk );
 }
 
+/*!
+  \ingroup NeighborRank
+  \param off_i, off_j, off_k Neighbor offset index in a given dimension.
+*/
 template <class MeshType>
 template <std::size_t NSD>
 std::enable_if_t<3 == NSD, int>
@@ -75,6 +80,10 @@ LocalGrid<MeshType>::neighborRank( const int off_i, const int off_j,
     return neighborRank( off_ijk );
 }
 
+/*!
+  \ingroup NeighborRank
+  \param off_i, off_j Neighbor offset index in a given dimension.
+*/
 template <class MeshType>
 template <std::size_t NSD>
 std::enable_if_t<2 == NSD, int>

@@ -21,7 +21,11 @@
 namespace Cajita
 {
 //---------------------------------------------------------------------------//
-// Backwards compatibility wrapper
+/*!
+  \copydoc ManualBlockPartitioner
+
+  Backwards compatibility wrapper for 3D manual partitioner.
+*/
 class ManualPartitioner : public ManualBlockPartitioner<3>
 {
   public:

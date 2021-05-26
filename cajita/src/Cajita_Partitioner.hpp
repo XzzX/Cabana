@@ -19,9 +19,13 @@
 namespace Cajita
 {
 //---------------------------------------------------------------------------//
-// Block partitioner base class.
-// Given global mesh parameters, the block partitioner computes how many MPI
-// ranks are assigned to each logical dimension.
+/*!
+  \brief Block partitioner base class.
+  \tparam NumSpaceDim Spatial dimension.
+
+  Given global mesh parameters, the block partitioner computes how many MPI
+  ranks are assigned to each logical dimension.
+*/
 template <std::size_t NumSpaceDim>
 class BlockPartitioner
 {
@@ -42,9 +46,12 @@ class BlockPartitioner
 };
 
 //---------------------------------------------------------------------------//
-// Manual block partitioner.
-//
-// Assign MPI blocks from a fixed user input.
+/*!
+  \brief Manual block partitioner.
+  \tparam NumSpaceDim Spatial dimension.
+
+  Assign MPI blocks from a fixed user input.
+*/
 template <std::size_t NumSpaceDim>
 class ManualBlockPartitioner : public BlockPartitioner<NumSpaceDim>
 {
@@ -76,15 +83,18 @@ class ManualBlockPartitioner : public BlockPartitioner<NumSpaceDim>
 };
 
 //---------------------------------------------------------------------------//
-// Dimension-only partitioner.
-//
-// Use MPI to compute the most uniform block distribution possible (i.e. the
-// one that has the minimal number of neighbor communication messages in halo
-// exchange). This distribution is independent of mesh parameters - only the
-// size of the communicator is considered. Depending on the problem, this may
-// not be the optimal partitioning depending on cell-counts and workloads as
-// the reduced number of MPI messages may be overshadowed by the load
-// imbalance during computation.
+/*!
+  \brief Dimension-only partitioner.
+  \tparam NumSpaceDim Spatial dimension.
+
+  Use MPI to compute the most uniform block distribution possible (i.e. the one
+  that has the minimal number of neighbor communication messages in halo
+  exchange). This distribution is independent of mesh parameters - only the size
+  of the communicator is considered. Depending on the problem, this may not be
+  the optimal partitioning depending on cell-counts and workloads as the reduced
+  number of MPI messages may be overshadowed by the load imbalance during
+  computation.
+*/
 template <std::size_t NumSpaceDim>
 class DimBlockPartitioner : public BlockPartitioner<NumSpaceDim>
 {

@@ -38,7 +38,9 @@ namespace BovWriter
 //---------------------------------------------------------------------------//
 // VisIt Brick-of-Values (BOV) grid field writer.
 //---------------------------------------------------------------------------//
-// BOV Format traits.
+
+//! \brief BOV Format traits.
+//! \tparam Scalar type.
 template <typename T>
 struct BovFormat;
 
@@ -66,7 +68,8 @@ struct BovFormat<double>
     static std::string value() { return "DOUBLE"; }
 };
 
-// BOV Centering
+//! \brief BOV Centering
+//! \tparam Entity type.
 template <typename T>
 struct BovCentering;
 
