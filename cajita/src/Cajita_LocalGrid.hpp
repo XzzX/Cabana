@@ -59,7 +59,7 @@ class LocalGrid
     int totalNumCell( const int d ) const;
 
     /*!
-      \defgroup NeighborRank
+      \defgroup NeighborRank Get neighbor rank
       \brief Get the global index of a neighbor given neighbor rank offsets
       relative to this local grid.
 
