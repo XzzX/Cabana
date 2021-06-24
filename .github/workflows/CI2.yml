@@ -209,7 +209,10 @@ jobs:
             -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DKokkos_ENABLE_HWLOC=ON \
-            -DCMAKE_BUILD_TYPE=${{ matrix.cmake_build_type }}
+            -DCMAKE_BUILD_TYPE=${{ matrix.cmake_build_type }} \
+            -DKokkos_ENABLE_DEBUG=ON \
+            -DKokkos_ENABLE_DEBUG_BOUNDS_CHECK=ON \
+            -DKokkos_ENABLE_DEBUG_DUALVIEW_MODIFY_CHECK=ON
           cmake --build build --parallel 2
           cmake --install build
       - name: Checkout arborx
